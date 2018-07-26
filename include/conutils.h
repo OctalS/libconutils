@@ -208,6 +208,9 @@ struct Rect {
     /** @return The linear offset of x and y in this rectangle. */
     inline size_t offset(const Point& point) const { return (point.y - top.y) * width() + point.x - top.x; }
 
+    /** @return The corresponding point for index without checking for bounds. */
+    inline Point  point_for(size_t index) const { return Point(index % width(), index / width()); }
+
     /** @return true if this rectangle can exist. */
     inline bool   valid() const { return bottom.x > top.x && bottom.y > top.y; };
 
@@ -447,6 +450,17 @@ public:
      * @return The new dirty region of the surface.
      */
     const Rect&           invalidate(const Rect& bounds);
+
+    /**
+     * Marks a region of the surface as dirty (modified)
+     * between start and end index exclusive of the surface Char buffer.
+     *
+     * @param start : Start buffer index
+     * @param end   : End buffer index
+     *
+     * @return The new dirty region of the surface.
+     */
+    const Rect&           invalidate(const size_t start, const size_t end);
 
     /**
      * Render all layers (if any) onto this surface and recursively repeat
