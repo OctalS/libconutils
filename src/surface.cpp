@@ -46,6 +46,21 @@ const Rect& Surface::invalidate(const Rect& bounds)
     return mDirty;
 }
 
+const Rect& Surface::invalidate(const size_t start, const size_t end)
+{
+    Rect dirty;
+    Point start_p = mBounds.point_for(start);
+    Point end_p = mBounds.point_for(end - 1); /* Make it [start, end) */
+
+    /* dirty is always entire line wide. */
+    if (start_p.y == end_p.y)
+        dirty = Rect(start_p.x, start_p.y, end_p.x + 1, end_p.y + 1);
+    else
+        dirty = Rect(0, start_p.y, mBounds.width(), end_p.y + 1);
+
+    return invalidate(dirty);
+}
+
 int Surface::resize(size_t width, size_t height)
 {
     mData = unique_ptr<Char>(new Char[width * height]);
