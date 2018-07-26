@@ -148,7 +148,7 @@ void Screen::drawChar(const Char& ch)
 {
     bool attr_changed = false;
 
-    if (ch.attr != mCurrentAttr.attr) {
+    if (ch.attr != mCurrentAttr.attr || !mCurrentAttr.val) {
         /* Terminal attributes has changed. We must issue a reset. */
         cout << "\x1b[0m";
 
@@ -193,6 +193,7 @@ void Screen::renderDone(const Rect& dirty)
     const Char *buf = data();
     size_t offset = 0;
 
+    /* Invalidate current attributes. */
     mCurrentAttr = Char(0, 0, 0, 0);
 
     /* Update only the dirty region. */
