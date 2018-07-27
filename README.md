@@ -1,4 +1,4 @@
-libconutils 1.0
+libconutils 0.0
 ===============
 
 libconutils is a small and simple Linux C++ library for providing
