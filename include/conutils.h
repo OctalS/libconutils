@@ -65,7 +65,7 @@
  * make install prefix=path
  * @endcode
  *
- * include conutils.h and link with -lconutils and use -std=c++11
+ * include conutils/conutils.h and link with -lconutils and use -std=c++11
  *
  * To uninstall run:\n
  *
