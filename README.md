@@ -37,7 +37,7 @@ Clean:
 
     make clean
 
-Include conutils.h and link with -lconutils
+Include conutils/conutils.h and link with -lconutils
 
 Documentation
 -------------
