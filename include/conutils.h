@@ -131,9 +131,9 @@
  * Surface child2(2, 2);
  *
  * // Solid fill the surfaces
- * window_bg.fill(Char('.', 2));        // Window background with green dots
- * child1.fill(Char('a', 3));           // Yellow a's
- * child2.fill(Char('b', 4));           // Blue b's
+ * window_bg.fill(Char('.', Char::green));        // Window background with green dots
+ * child1.fill(Char('a', Char::yellow));           // Yellow a's
+ * child2.fill(Char('b', Char::blue));           // Blue b's
  *
  * // Create the tree
  * window.addLayer(&window_bg, 0);      // Add window background with Z order 0
@@ -226,8 +226,8 @@ struct Rect {
 
     /** @return The intersected rectangle of r1 and r2 if any. */
     static const Rect intersect(const Rect& r1, const Rect& r2);
-    /** @return The common biggest rectangle of r1 and r2. */
-    static const Rect common(const Rect& r1, const Rect& r2);
+    /** @return The bounding rectangle of r1 and r2. */
+    static const Rect boundingRect(const Rect& r1, const Rect& r2);
 
     Point top;
     Point bottom;
@@ -259,7 +259,7 @@ struct Char {
         white,
     };
 
-    Char(char val = ' ', uint8_t fg = 7, uint8_t bg = 0, uint8_t attr = none)
+    Char(char val = ' ', uint8_t fg = white, uint8_t bg = black, uint8_t attr = none)
         : val(val), fg(fg), bg(bg), attr(attr) { }
 
     inline bool operator== (const Char& rhs) const { return rhs.val == val && rhs.fg == fg && rhs.bg == bg && rhs.attr == attr; }
