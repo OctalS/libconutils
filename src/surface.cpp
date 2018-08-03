@@ -39,7 +39,7 @@ const Rect& Surface::invalidate(const Rect& bounds)
 {
     /* Accumulate dirty. */
     if (mDirty.valid())
-        mDirty = Rect::common(mDirty, Rect::intersect(mBounds, bounds));
+        mDirty = Rect::boundingRect(mDirty, Rect::intersect(mBounds, bounds));
     else
         mDirty = Rect::intersect(mBounds, bounds);
 
