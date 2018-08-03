@@ -226,8 +226,8 @@ struct Rect {
 
     /** @return The intersected rectangle of r1 and r2 if any. */
     static const Rect intersect(const Rect& r1, const Rect& r2);
-    /** @return The common biggest rectangle of r1 and r2. */
-    static const Rect common(const Rect& r1, const Rect& r2);
+    /** @return The bounding rectangle of r1 and r2. */
+    static const Rect boundingRect(const Rect& r1, const Rect& r2);
 
     Point top;
     Point bottom;

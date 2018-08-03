@@ -43,7 +43,7 @@ const Rect Rect::intersect(const Rect& r1, const Rect& r2)
     return r;
 }
 
-const Rect Rect::common(const Rect& r1, const Rect& r2)
+const Rect Rect::boundingRect(const Rect& r1, const Rect& r2)
 {
     Rect r;
 
