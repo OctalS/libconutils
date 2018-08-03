@@ -200,7 +200,7 @@ void Screen::renderDone(const Rect& dirty)
     for (; y < y_cnt; y++) {
         x = dirty.top.x + 1;
         /* conutils coordinates start from 0. */
-        offset = mBounds.offset(Point(x - 1, y - 1));
+        offset = mBounds.index_for(Point(x - 1, y - 1));
         /* Goto x, y */
         cout << "\x1b[" << y << ";" << x << "H";
         for (; x < x_cnt; x++) {

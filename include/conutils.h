@@ -205,8 +205,8 @@ struct Rect {
     /** @return Rectangle size (area) */
     inline size_t size() const { return width() * height(); }
 
-    /** @return The linear offset of x and y in this rectangle. */
-    inline size_t offset(const Point& point) const { return (point.y - top.y) * width() + point.x - top.x; }
+    /** @return The linear coordinate of x and y in this rectangle. */
+    inline size_t index_for(const Point& point) const { return (point.y - top.y) * width() + point.x - top.x; }
 
     /** @return The corresponding point for index without checking for bounds. */
     inline Point  point_for(size_t index) const { return Point(index % width(), index / width()); }

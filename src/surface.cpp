@@ -91,7 +91,7 @@ int Surface::fill(const Char& pattern, const Rect& crop)
         for (size_t y = 0; y < h; y++) {
             for (size_t x = 0; x < w; x++) {
                 Point p(dirty.top.x + x, dirty.top.y + y);
-                Char *data = mData.get() + mBounds.offset(p);
+                Char *data = mData.get() + mBounds.index_for(p);
                 *data = pattern;
             }
         }
@@ -129,8 +129,8 @@ int Surface::blend(const Surface& other, const Rect& src_crop, const Point& pos)
         for (size_t x = 0; x < dst_w; x++) {
             Point src_p(s_crop.top.x + x, s_crop.top.y + y);
             Point dst_p(d_crop.top.x + x, d_crop.top.y + y);
-            const Char *src_ch = src + other.mBounds.offset(src_p);
-            Char *dst_ch = dst + mBounds.offset(dst_p);
+            const Char *src_ch = src + other.mBounds.index_for(src_p);
+            Char *dst_ch = dst + mBounds.index_for(dst_p);
 
             if (!(src_ch->attr & Char::transparent))
                 *dst_ch = *src_ch;
