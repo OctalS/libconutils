@@ -24,8 +24,9 @@ doc:
 	cd doc && doxygen Doxyfile
 
 install: $(out).so
+	mkdir -p $(prefix)/include/conutils
+	mkdir -p $(prefix)/lib
 	install -m 0644 $(out).so $(prefix)/lib
-	mkdir $(prefix)/include/conutils
 	install -m 0644 $(inc) $(prefix)/include/conutils
 
 uninstall:
