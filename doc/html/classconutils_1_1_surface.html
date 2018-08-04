@@ -161,6 +161,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa259a1d755118d67d8fbd9a65e6c10c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c50df738120d0b008d5f03352eb785f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structconutils_1_1_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconutils_1_1_surface.html#a9c50df738120d0b008d5f03352eb785f">invalidate</a> (const <a class="el" href="structconutils_1_1_rect.html">Rect</a> &amp;<a class="el" href="classconutils_1_1_surface.html#ab0726ee887fec3dfbdb3f581f4cc8197">bounds</a>)</td></tr>
 <tr class="separator:a9c50df738120d0b008d5f03352eb785f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9052d79efb28a56668d3a553799cc3a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structconutils_1_1_rect.html">Rect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconutils_1_1_surface.html#ac9052d79efb28a56668d3a553799cc3a">invalidate</a> (const size_t start, const size_t end)</td></tr>
+<tr class="separator:ac9052d79efb28a56668d3a553799cc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0446c6bc2e39eba434166a88872eb4f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconutils_1_1_surface.html#a0446c6bc2e39eba434166a88872eb4f2">render</a> ()</td></tr>
 <tr class="separator:a0446c6bc2e39eba434166a88872eb4f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa25501fc3c6c29b6e1df7ccc8a6b823e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconutils_1_1_surface.html#aa25501fc3c6c29b6e1df7ccc8a6b823e">str</a> (std::string ident=&quot;&quot;) const </td></tr>
@@ -522,6 +524,41 @@ Protected Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bounds</td><td>: The region to be marked as dirty.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new dirty region of the surface. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac9052d79efb28a56668d3a553799cc3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structconutils_1_1_rect.html">Rect</a>&amp; conutils::Surface::invalidate </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Marks a region of the surface as dirty (modified) between start and end index exclusive of the surface <a class="el" href="structconutils_1_1_char.html">Char</a> buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>: Start buffer index </td></tr>
+    <tr><td class="paramname">end</td><td>: End buffer index</td></tr>
   </table>
   </dd>
 </dl>
@@ -901,12 +938,12 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/vlad/Code/libconutils/<a class="el" href="conutils_8h_source.html">conutils.h</a></li>
+<li>/home/vlad/Code/libconutils/include/<a class="el" href="conutils_8h_source.html">conutils.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 27 2018 23:04:29 for libconutils by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 4 2018 17:26:17 for libconutils by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -104,7 +104,7 @@ Compile and install</h1>
 </div><!-- fragment --><p>Default installation prefix is /usr/local You can change it by:<br/>
  </p>
 <div class="fragment"><div class="line">make install prefix=path</div>
-</div><!-- fragment --><p>include <a class="el" href="conutils_8h_source.html">conutils.h</a> and link with -lconutils and use -std=c++11</p>
+</div><!-- fragment --><p>include conutils/conutils.h and link with -lconutils and use -std=c++11</p>
 <p>To uninstall run:<br/>
  </p>
 <div class="fragment"><div class="line">make uninstall</div>
@@ -151,15 +151,15 @@ Usage</h1>
 <div class="line"><a class="code" href="classconutils_1_1_surface.html">Surface</a> child2(2, 2);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Solid fill the surfaces</span></div>
-<div class="line">window_bg.fill(<a class="code" href="structconutils_1_1_char.html">Char</a>(<span class="charliteral">&#39;.&#39;</span>, 2));        <span class="comment">// Window background with green dots</span></div>
-<div class="line">child1.fill(<a class="code" href="structconutils_1_1_char.html">Char</a>(<span class="charliteral">&#39;a&#39;</span>, 3));           <span class="comment">// Yellow a&#39;s</span></div>
-<div class="line">child2.fill(<a class="code" href="structconutils_1_1_char.html">Char</a>(<span class="charliteral">&#39;b&#39;</span>, 4));           <span class="comment">// Blue b&#39;s</span></div>
+<div class="line">window_bg.fill(<a class="code" href="structconutils_1_1_char.html">Char</a>(<span class="charliteral">&#39;.&#39;</span>, Char::green)); <span class="comment">// Window background with green dots</span></div>
+<div class="line">child1.fill(<a class="code" href="structconutils_1_1_char.html">Char</a>(<span class="charliteral">&#39;a&#39;</span>, Char::yellow));   <span class="comment">// Yellow a&#39;s</span></div>
+<div class="line">child2.fill(<a class="code" href="structconutils_1_1_char.html">Char</a>(<span class="charliteral">&#39;b&#39;</span>, Char::blue));     <span class="comment">// Blue b&#39;s</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Create the tree</span></div>
-<div class="line">window.addLayer(&amp;window_bg, 0);      <span class="comment">// Add window background with Z order 0</span></div>
-<div class="line">window.addLayer(&amp;child1, {1, 1}, 1); <span class="comment">// Add child1 at pos 1, 1 with Z order 1</span></div>
-<div class="line">window.addLayer(&amp;child2, {2, 2}, 2); <span class="comment">// Add child2 at pos 1, 1 with Z order 2</span></div>
-<div class="line">sc-&gt;addLayer(&amp;window, {10, 10});     <span class="comment">// Add the window to the screen at 10, 10 with Z order 0 (default)</span></div>
+<div class="line">window.addLayer(&amp;window_bg, 0);         <span class="comment">// Add window background with Z order 0</span></div>
+<div class="line">window.addLayer(&amp;child1, {1, 1}, 1);    <span class="comment">// Add child1 at pos 1, 1 with Z order 1</span></div>
+<div class="line">window.addLayer(&amp;child2, {2, 2}, 2);    <span class="comment">// Add child2 at pos 1, 1 with Z order 2</span></div>
+<div class="line">sc-&gt;addLayer(&amp;window, {10, 10});        <span class="comment">// Add the window to the screen at 10, 10 with Z order 0 (default)</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Post update</span></div>
 <div class="line">window.render();</div>
@@ -172,7 +172,7 @@ Usage</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 27 2018 23:04:29 for libconutils by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Aug 4 2018 17:26:17 for libconutils by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
