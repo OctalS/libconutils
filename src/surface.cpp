@@ -132,7 +132,7 @@ int Surface::blend(const Surface& other, const Rect& src_crop, const Point& pos)
             const Char *src_ch = src + other.mBounds.index_for(src_p);
             Char *dst_ch = dst + mBounds.index_for(dst_p);
 
-            if (!(src_ch->attr & Char::transparent))
+            if (!(src_ch->attr.attr & Attribute::transparent))
                 *dst_ch = *src_ch;
         }
     }

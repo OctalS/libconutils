@@ -234,9 +234,9 @@ struct Rect {
 };
 
 /**
- * Represents an ASCII character with colors and attributes.
+ * Represents an ASCII attributes. Supports max 256 color mode.
  */
-struct Char {
+struct Attribute {
     /** Characters attributes */
     enum {
         none        = 0x00,
@@ -259,20 +259,35 @@ struct Char {
         white,
     };
 
-    Char(char val = ' ', uint8_t fg = white, uint8_t bg = black, uint8_t attr = none)
-        : val(val), fg(fg), bg(bg), attr(attr) { }
+    Attribute(uint8_t fg = white, uint8_t bg = black, uint8_t attr = none) :
+        fg(fg), bg(bg), attr(attr) { }
 
-    inline bool operator== (const Char& rhs) const { return rhs.val == val && rhs.fg == fg && rhs.bg == bg && rhs.attr == attr; }
-    inline bool operator!= (const Char& rhs) const { return !operator==(rhs); }
+    inline bool operator== (const Attribute& rhs) const { return rhs.fg == fg && rhs.bg == bg && rhs.attr == attr; }
+    inline bool operator!= (const Attribute& rhs) const { return !operator==(rhs); }
 
-    /** Character value. */
-    char val;
     /** Foreground color. */
     uint8_t fg;
     /** Background color. */
     uint8_t bg;
-    /** OR'ed values of character attributes. */
+    /** OR'ed values of attributes. */
     uint8_t attr;
+};
+
+/**
+ * Represents an ASCII character with colors and attributes.
+ */
+struct Char {
+    Char(char val = ' ', uint8_t fg = Attribute::white, uint8_t bg = Attribute::black, uint8_t attr = Attribute::none)
+        : val(val), attr(fg, bg, attr) { }
+
+    inline bool operator== (const Char& rhs) const { return rhs.val == val && rhs.attr == attr; }
+    inline bool operator!= (const Char& rhs) const { return !operator==(rhs); }
+
+    /** Character value. */
+    char val;
+
+    /** Character attributes. */
+    Attribute attr;
 };
 
 /**

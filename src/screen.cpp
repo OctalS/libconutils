@@ -152,24 +152,24 @@ void Screen::drawChar(const Char& ch)
         /* Terminal attributes has changed. We must issue a reset. */
         cout << "\x1b[0m";
 
-        if (ch.attr & Char::bold)
+        if (ch.attr.attr & Attribute::bold)
             cout << "\x1b[1m";
-        if (ch.attr & Char::underscore)
+        if (ch.attr.attr & Attribute::underscore)
             cout << "\x1b[4m";
-        if (ch.attr & Char::blink)
+        if (ch.attr.attr & Attribute::blink)
             cout << "\x1b[5m";
-        if (ch.attr & Char::reverse)
+        if (ch.attr.attr & Attribute::reverse)
             cout << "\x1b[7m";
         attr_changed = true;
     }
 
-    if (attr_changed || (ch.fg != mCurrentAttr.fg)) {
-        cout << "\x1b[38;5;" << (int)ch.fg << "m";
+    if (attr_changed || (ch.attr.fg != mCurrentAttr.attr.fg)) {
+        cout << "\x1b[38;5;" << (int)ch.attr.fg << "m";
         attr_changed = true;
     }
 
-    if (attr_changed || (ch.bg != mCurrentAttr.bg)) {
-        cout << "\x1b[48;5;" << (int)ch.bg << "m";
+    if (attr_changed || (ch.attr.bg != mCurrentAttr.attr.bg)) {
+        cout << "\x1b[48;5;" << (int)ch.attr.bg << "m";
         attr_changed = true;
     }
 
