@@ -486,6 +486,11 @@ protected:
     virtual void          renderDone(const Rect& dirty) { }
 
 private:
+    /* Disallow suface copying. */
+    Surface(const Surface&);
+    Surface(const Surface&&);
+    const Surface& operator= (const Surface&);
+
     Rect mBounds;
     Rect mDirty;
     Point mPos;
