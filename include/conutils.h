@@ -239,12 +239,13 @@ struct Rect {
 struct Attribute {
     /** Characters attributes */
     enum {
-        none        = 0x00,
-        bold        = 0x01,
-        underscore  = 0x02,
-        blink       = 0x04,
-        reverse     = 0x08,
-        transparent = 0x80,
+        none           = 0x00,
+        bold           = 0x01,
+        underscore     = 0x02,
+        blink          = 0x04,
+        reverse        = 0x08,
+        transparent    = 0x80,
+        transparent_bg = 0x40,
     };
 
     /** Standart first 8 colors */

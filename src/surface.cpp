@@ -130,10 +130,26 @@ int Surface::blend(const Surface& other, const Rect& src_crop, const Point& pos)
             Point src_p(s_crop.top.x + x, s_crop.top.y + y);
             Point dst_p(d_crop.top.x + x, d_crop.top.y + y);
             const Char *src_ch = src + other.mBounds.index_for(src_p);
+            const uint8_t& src_attr = src_ch->attr.attr;
             Char *dst_ch = dst + mBounds.index_for(dst_p);
 
-            if (!(src_ch->attr.attr & Attribute::transparent))
+            /* Skip transparent characters. */
+            if (src_attr & Attribute::transparent)
+                continue;
+
+            /* Keep original background if src is transparent_bg. */
+            if (src_attr & Attribute::transparent_bg) {
+                uint8_t dst_bg = dst_ch->attr.bg;
+
                 *dst_ch = *src_ch;
+                dst_ch->attr.bg = dst_bg;
+                /* Do not propagate this flags further. */
+                dst_ch->attr.attr &= ~Attribute::transparent_bg;
+                continue;
+            }
+
+            /* Normal copy. */
+            *dst_ch = *src_ch;
         }
     }
 
