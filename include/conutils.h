@@ -260,18 +260,18 @@ struct Attribute {
         white,
     };
 
-    Attribute(uint8_t fg = white, uint8_t bg = black, uint8_t attr = none) :
-        fg(fg), bg(bg), attr(attr) { }
+    Attribute(uint8_t fg = white, uint8_t bg = black, uint8_t flags = none) :
+        fg(fg), bg(bg), flags(flags) { }
 
-    inline bool operator== (const Attribute& rhs) const { return rhs.fg == fg && rhs.bg == bg && rhs.attr == attr; }
+    inline bool operator== (const Attribute& rhs) const { return rhs.fg == fg && rhs.bg == bg && rhs.flags == flags; }
     inline bool operator!= (const Attribute& rhs) const { return !operator==(rhs); }
 
     /** Foreground color. */
     uint8_t fg;
     /** Background color. */
     uint8_t bg;
-    /** OR'ed values of attributes. */
-    uint8_t attr;
+    /** OR'ed values of attribute flags. */
+    uint8_t flags;
 };
 
 /**
