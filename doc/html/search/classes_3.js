@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rect',['Rect',['../structconutils_1_1_rect.html',1,'conutils']]]
+  ['point',['Point',['../structconutils_1_1_point.html',1,'conutils']]]
 ];

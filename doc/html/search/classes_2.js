@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['point',['Point',['../structconutils_1_1_point.html',1,'conutils']]]
+  ['keyboard',['Keyboard',['../classconutils_1_1_keyboard.html',1,'conutils']]]
 ];

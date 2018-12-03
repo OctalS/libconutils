@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['char',['Char',['../structconutils_1_1_char.html',1,'conutils']]]
+  ['attribute',['Attribute',['../structconutils_1_1_attribute.html',1,'conutils']]]
 ];

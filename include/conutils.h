@@ -131,9 +131,9 @@
  * Surface child2(2, 2);
  *
  * // Solid fill the surfaces
- * window_bg.fill(Char('.', Char::green)); // Window background with green dots
- * child1.fill(Char('a', Char::yellow));   // Yellow a's
- * child2.fill(Char('b', Char::blue));     // Blue b's
+ * window_bg.fill(Char('.', Attribute::green)); // Window background with green dots
+ * child1.fill(Char('a', Attribute::yellow));   // Yellow a's
+ * child2.fill(Char('b', Attribute::blue));     // Blue b's
  *
  * // Create the tree
  * window.addLayer(&window_bg, 0);         // Add window background with Z order 0
